@@ -21,11 +21,9 @@
                     <div class="col-md-3">
                         <div class="thumbnail">
                             <div class="caption text-center">
-                                <a href="{{ url('shop', [$product->slug]) }}">
-                                <img src="{{ $product->image }}" alt="product" class="img-responsive">
-                                </a>
+                                <a href="{{ url('shop', [$product->slug]) }}"><img src="{{ $product->image }}" alt="product" class="img-responsive"></a>
                                 <a href="{{ url('shop', [$product->slug]) }}"><h3>{{ $product->name }}</h3>
-                                <p>&#x20b9; {{ $product->price }}</p>
+                                <p>{{ $product->price }}</p>
                                 </a>
                             </div> <!-- end caption -->
                         </div> <!-- end thumbnail -->

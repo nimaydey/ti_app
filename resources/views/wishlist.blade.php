@@ -37,16 +37,21 @@
                 <tbody>
                     @foreach (Cart::instance('wishlist')->content() as $item)
                     <tr>
-                        <td class="table-image"><a href="{{ url('shop', [$item->model->slug]) }}"><img src="{{ $item->model->image }}" alt="product" class="img-responsive cart-image"></a></td>
+                        <td class="table-image"><a href="{{ url('shop', [$item->model->slug]) }}"><img src="{{ asset('img/' . $item->model->image) }}" alt="product" class="img-responsive cart-image"></a></td>
                         <td><a href="{{ url('shop', [$item->model->slug]) }}">{{ $item->name }}</a></td>
 
-                        <td>&#x20b9; {{ $item->subtotal }}</td>
+                        <td>${{ $item->subtotal }}</td>
                         <td class=""></td>
                         <td>
                             <form action="{{ url('wishlist', [$item->rowId]) }}" method="POST" class="side-by-side">
                                 {!! csrf_field() !!}
                                 <input type="hidden" name="_method" value="DELETE">
                                 <input type="submit" class="btn btn-danger btn-sm" value="Remove">
+                            </form>
+
+                            <form action="{{ url('switchToCart', [$item->rowId]) }}" method="POST" class="side-by-side">
+                                {!! csrf_field() !!}
+                                <input type="submit" class="btn btn-success btn-sm" value="To Cart">
                             </form>
                         </td>
                     </tr>
