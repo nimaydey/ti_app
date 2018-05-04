@@ -13,3 +13,5 @@ Route::post('switchToWishlist/{id}', 'CartController@switchToWishlist');
 Route::resource('wishlist', 'WishlistController');
 Route::delete('emptyWishlist', 'WishlistController@emptyWishlist');
 Route::post('switchToCart/{id}', 'WishlistController@switchToCart');
+
+Route::get('getData/{url}','CrawlerController@index');
